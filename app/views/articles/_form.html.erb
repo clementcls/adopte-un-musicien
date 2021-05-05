@@ -1,0 +1,21 @@
+<div class="section">
+    <%= simple_form_for @article do |f| %>
+    <div class="field">
+        <div class="control">
+            <%= f.input :title, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label'} , label:"Titre de l'annonce" %>
+
+        </div>
+    </div>
+     <div class="field">
+        <div class="control">
+            <%= f.input :content, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label'} , label:"Description (instrument, style de musique, numéro de téléphone, etc.)" %>
+        </div>
+    </div>
+    <%= button_tag(type: 'submit', class: "button is-primary") do %>
+        Publier
+    <% end %>
+
+
+    <% end %>
+</div>
+

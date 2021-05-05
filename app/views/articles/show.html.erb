@@ -1,0 +1,42 @@
+<% content_for :page_title, @article.title %>
+<% content_for :page_subtitle, "Ci-dessous, retrouvez des informations pratiques liées à l'annonce" %>
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            <%= @article.title %>
+        </h1>
+        <nav class="level">
+            <div class="level-left">
+                <p class="level-item">
+                    <strong>Actions</strong>
+                </p>
+            </div>
+            <div class="level-right">
+                <p class="level-item">
+                    <%= link_to "Modifier", edit_article_path(@article), class: "button" %>
+                </p>
+                <p class="level-item">
+                    <%= link_to "Supprimer", article_path(@article), method: :delete, data: { confirm: "Supprimer défintivement ?" }, class: "button is-danger" %>
+                </p>
+            </div>
+        </nav>
+        <hr />
+
+        <div class="content">
+            <%= @article.content %>
+        </div>
+    </div>
+</section>
+
+<section class="section-comments">
+    <div class="container">
+        <h2 class="subtitle is-5"><strong><%= @article.comments.count %></strong> commentaires</h2>
+        <%= render @article.comments %>
+        <div class="comment-form">
+            <hr />
+            <h3 class="subtitle is-3">Publier une réponse</h3>
+            <%= render 'comments/form' %>
+        </div> 
+    </div>
+</section>
